@@ -1,0 +1,27 @@
+<div class="formulario">
+<h1 class="text-center">Login</h1>
+<form class="container" (ngSubmit)="login()" #loginForm="ngForm">
+  <div>
+    <div class="mb-3">
+      <input class="form-control" [(ngModel)]="email" name="email" placeholder="Email do usuário"
+      #campoUsuario="ngModel" required>
+      <app-mensagem
+      *ngIf="campoUsuario.invalid && campoUsuario.touched"
+      mensagem="Usuário obrigatório"></app-mensagem>
+    </div>
+
+    <div class="mb-3">
+      <input type="password" class="form-control" [(ngModel)]="senha" name="senha" placeholder="Senha"
+      #campoSenha="ngModel" required />
+      <app-mensagem
+      *ngIf="campoSenha.invalid && campoSenha.touched"
+      mensagem="Senha obrigatória"
+      ></app-mensagem>
+    </div>
+
+    <div class="d-grid gap-2">
+      <button class="btn btn-primary btn-block" type="submit" [disabled]="loginForm.invalid">Login</button>
+    </div>
+  </div>
+</form>
+</div>

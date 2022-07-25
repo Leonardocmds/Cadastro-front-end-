@@ -1,0 +1,78 @@
+<div class="formulario container">
+<h1 class="text-center">Cadastro</h1>
+<form [formGroup]="cadastroForm" (submit)="cadastrar()">
+  <div class="form-group row mb-3">
+    <label for="nome" class="col-sm-2 col-form-label">Nome:</label>
+    <div class="col-sm-10">
+      <input type="text" class="form-control kkk"  formControlName="nome" placeholder="Nome do cliente">
+      <app-mensagem
+      *ngIf="cadastroForm.get('nome')?.errors && cadastroForm.get('nome')?.touched"
+      mensagem="Nome obrigatório"
+      ></app-mensagem>
+    </div>
+  </div>
+  <div class="form-group row mb-3">
+    <label for="cpf" class="col-sm-2 col-form-label">CPF:</label>
+    <div class="col-sm-10">
+      <input type="text" class="form-control"  formControlName="cpf" placeholder="CPF do cliente">
+      <app-mensagem
+      *ngIf="cadastroForm.get('cpf')?.errors?.['required'] && cadastroForm.get('cpf')?.touched"
+      mensagem="CPF obrigatório"
+      ></app-mensagem>
+      <app-mensagem
+      *ngIf="cadastroForm.get('cpf')?.errors?.['minlength'] && cadastroForm.get('cpf')?.touched"
+      mensagem="CPF no formato incorreto"
+      ></app-mensagem>
+      <app-mensagem
+      *ngIf="cadastroForm.get('cpf')?.errors?.['cpfExistente']"
+      mensagem="CPF já cadastrado"
+      ></app-mensagem>
+      <app-mensagem
+      *ngIf="cadastroForm.get('cpf')?.errors?.['cpfNotValid']"
+      mensagem="CPF invalido"
+      ></app-mensagem>
+    </div>
+  </div>
+  <div class="form-group row mb-3">
+    <label for="email" class="col-sm-2 col-form-label">Email:</label>
+    <div class="col-sm-10">
+      <input type="email" class="form-control" formControlName="email" placeholder="Email do cliente">
+      <app-mensagem
+      *ngIf="cadastroForm.get('email')?.errors?.['required'] && cadastroForm.get('email')?.touched"
+      mensagem="Email obrigatório"
+      ></app-mensagem>
+      <app-mensagem
+      *ngIf="cadastroForm.get('email')?.errors?.['email'] && cadastroForm.get('email')?.touched"
+      mensagem="Formato incorreto"
+      ></app-mensagem>
+    </div>
+  </div>
+  <div class="form-group row mb-3">
+    <label for="endereco" class="col-sm-2 col-form-label">Endereço:</label>
+    <div class="col-sm-10">
+      <input type="text" class="form-control"formControlName="endereco" placeholder="Endereço do cliente">
+      <app-mensagem
+      *ngIf="cadastroForm.get('endereco')?.errors?.['required'] && cadastroForm.get('endereco')?.touched"
+      mensagem="Endereço obrigatório"
+      ></app-mensagem>
+    </div>
+  </div>
+  <div class="form-group row mb-3">
+    <label for="dataNascimento" class="col-sm-2 col-form-label">Data de Nascimento:</label>
+    <div class="col-sm-10">
+      <input type="date" class="form-control"  formControlName="dataNascimento">
+      <app-mensagem
+      *ngIf="cadastroForm.get('dataNascimento')?.errors && cadastroForm.get('dataNascimento')?.touched"
+      mensagem="Data obrigatória"
+      ></app-mensagem>
+    </div>
+  </div>
+
+
+    <div class="d-grid gap-2">
+      <button class="btn btn-primary" [disabled]="cadastroForm.invalid">Cadastrar</button>
+    </div>
+
+</form>
+</div>
+

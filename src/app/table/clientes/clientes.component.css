@@ -1,0 +1,14 @@
+table {
+  background-color: white;
+  padding: 16px;
+  border-radius: 4px;
+  box-shadow: 0 0 8px rgba(0, 0, 0, 0.2);
+  margin-top: 70px;
+  width: 80%;
+  margin-left: 10%;
+
+}
+
+.kkk{
+  text-transform: capitalize;
+ }

@@ -1,0 +1,30 @@
+<div class="table-responsive">
+  <table class="table">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Nome</th>
+      <th scope="col">CPF</th>
+      <th scope="col">Email</th>
+      <th scope="col">Endereço</th>
+      <th scope="col">Data de Nascimento</th>
+      <th scope="col">Delete</th>
+      <th scope="col">Atualizar</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let cliente of clientes">
+      <td>{{cliente.id}}</td>
+      <td class="kkk">{{cliente.nome}}</td>
+      <td>{{cliente.cpf}}</td>
+      <td>{{cliente.email}}</td>
+      <td>{{cliente.endereco}}</td>
+      <td>{{cliente.dataNascimento | date: "dd/MM/yyyy"}}</td>
+      <td><button class="btn btn-primary" type="submit" (click)="deletar(cliente)">
+        <i>Deletar</i> </button></td>
+       <td><button class="btn btn-primary" (click)="onEdit(cliente.id!)" >
+      <i>Atualizar</i> </button></td>
+  </tr>
+  </tbody>
+</table>
+</div>

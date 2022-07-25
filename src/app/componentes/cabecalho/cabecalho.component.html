@@ -1,0 +1,18 @@
+<meta name="viewport" content="width=device-width">
+<header>
+  <span class="upper">Cadastro de Cliente</span>
+  <div class="login" *ngIf="user$ | async as user">
+    <div class="kk" *ngIf="user.nome; else login">
+      <i class="fa fa-user-circle mr-1 branco"></i>
+      <a class="branco" >{{ user.nome }}</a>
+      <a class="upper item" [routerLinkActive]="['ativo']" [routerLink]="['/clientes']">Buscar Clientes</a>
+      <a class="upper item" [routerLinkActive]="['ativo']" [routerLink]="['/formulario']">Cadastro</a>
+      <a class="upper item" (click)="logout()">Logout</a>
+    </div>
+  </div>
+  <ng-template class="login" #login>
+    <span class="navbar-text">
+      <a [routerLinkActive]="['ativo']" [routerLink]="['']">Login</a>
+    </span>
+  </ng-template>
+</header>

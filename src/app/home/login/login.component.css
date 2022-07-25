@@ -1,0 +1,21 @@
+.formulario {
+  background-color: white;
+  padding: 16px;
+  border-radius: 4px;
+  box-shadow: 0 0 8px rgba(0, 0, 0, 0.2);
+  margin-top: 70px;
+  width: 50%;
+  margin-left: 25%;
+
+}
+
+h1{
+	text-transform: uppercase;
+	font-weight: bold;
+	font-size: 20px;
+
+}
+
+.ativo{display: none;}
+
+
